@@ -1,4 +1,4 @@
-#Doublegram Startup Edition - Definitive Telegram scraping & adding tool
+# Doublegram Startup Edition - Definitive Telegram scraping & adding tool
 
 ![Logo](https://iili.io/JIb3rp2.gif)
 
