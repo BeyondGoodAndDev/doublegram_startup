@@ -65,11 +65,11 @@ if lang == 'IT' or lang == 'EN':
 
 breaker = False 
 
-current_version = '1.3.1'
+current_version = '1.3.2'
 current_edition = 'STARTUP_EDITION'
-serial_id = 'EO9K2W3E9JRF76E5671DIEM3'
+serial_id = 'EO9K2W3E9JRF76E5671DIE32'
 
-url = "https://dblgrm.me/version_verification.php?edition="+current_edition
+url = "https://startup.doublegram.com/version_verification.php?edition="+current_edition
 
 try:
 	resp = requests.get(url)
@@ -86,7 +86,7 @@ if last_version != current_version and last_version != 'no':
 else:
 	is_update = False
 
-url = "https://dblgrm.me/notice.php?ver="+current_version+'&edition='+current_edition
+url = "https://startup.doublegram.com/notice.php?ver="+current_version+'&edition='+current_edition
 resp = requests.get(url)
 notice = resp.text
 
