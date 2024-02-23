@@ -37,7 +37,7 @@ except IOError:
 	lang_setting = configparser.RawConfigParser()
 	lang_setting.add_section('lang')
 	lang_setting.set('lang', 'choise', chosen_lang)
-	setup = open('data/lang.data', 'w', encoding="UTF-8")
+	setup = open('data/lang.data', 'w', )
 	lang_setting.write(setup)
 	setup.close()
 
@@ -71,7 +71,7 @@ def checkSettings(if_false_create):
 			settings.add_section("general_settings")
 			settings.set("general_settings", "log", translations['disabilitato_first_cap'])
 			settings.set("general_settings", "analyze_account", "doublegram_owner")
-			setup = open("data/settings.data", "w", , encoding="UTF-8")
+			setup = open("data/settings.data", "w")
 			settings.write(setup)
 
 			settings.add_section("adding_settings")
@@ -138,7 +138,7 @@ def SetLanguage():
 
 	if choise == 'q' or choise == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.SettingsMenu()
 
@@ -146,7 +146,7 @@ def SetLanguage():
 		int(choise)
 	except:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SetLanguage()
 
@@ -165,7 +165,7 @@ def SetLanguage():
 	cnfFile.close()
 
 	if log == translations['disabilitato_first_cap']:
-		os.system('clear')
+		os.system('cls' if os.name=='nt' else 'clear')
 		banner.banner()
 
 	os.remove("data/settings.data")
@@ -189,7 +189,7 @@ def SetLogs():
 
 	if choise == 'q' or choise == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.SettingsMenu()
 
@@ -219,7 +219,7 @@ def SetLogs():
 
 	else:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SetLogs()
 
@@ -246,7 +246,7 @@ def SetAnalyzeAccount():
 
 	if choise == 'q' or choise == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.SettingsMenu()
 
@@ -271,12 +271,12 @@ def SetAnalyzeAccount():
 
 	else:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SetAnalyzeAccount()
 
 	if log == translations['disabilitato_first_cap']:
-		os.system('clear')
+		os.system('cls' if os.name=='nt' else 'clear')
 		banner.banner()
 
 	menu.SettingsMenu()
@@ -326,7 +326,7 @@ def SetChangeEveryNAdded():
 
 	if choise == 'q' or choise == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.AddingSettingsMenu()
 
@@ -334,7 +334,7 @@ def SetChangeEveryNAdded():
 		int(choise)
 	except:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SetChangeEveryNAdded()
 
@@ -351,7 +351,7 @@ def SetChangeEveryNAdded():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
@@ -365,14 +365,14 @@ def SetChangeEveryNAdded():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
 
 	else:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SetChangeEveryNAdded()
 
@@ -430,14 +430,14 @@ def SetPauseBetweenAccounts():
 
 	if choise == 'q' or choise == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.AddingSettingsMenu()
 	try:
 		int(choise)
 	except:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SetPauseBetweenAccounts()
 
@@ -450,7 +450,7 @@ def SetPauseBetweenAccounts():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
@@ -475,7 +475,7 @@ def SetPauseBetweenAccounts():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
@@ -510,7 +510,7 @@ def SetPauseBetweenAccounts():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
@@ -549,7 +549,7 @@ def SetPauseBetweenAccounts():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
@@ -563,14 +563,14 @@ def SetPauseBetweenAccounts():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
 
 	else:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SetPauseBetweenAccounts()
 
@@ -600,7 +600,7 @@ def SetStopMaxAdding():
 
 	if choise == 'q' or choise == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.AddingSettingsMenu()
 
@@ -608,7 +608,7 @@ def SetStopMaxAdding():
 		int(choise)
 	except:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SetStopMaxAdding()
 	
@@ -628,13 +628,13 @@ def SetStopMaxAdding():
 			cnfFile.close()
 
 			if log == translations['disabilitato_first_cap']:
-				os.system('clear')
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 
 			menu.AddingSettingsMenu()
 		except:
 			if log == translations['disabilitato_first_cap']:
-				os.system('clear')
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 			SetStopMaxAdding()	
 
@@ -647,14 +647,14 @@ def SetStopMaxAdding():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
 
 	else:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SetStopMaxAdding()
 
@@ -697,14 +697,14 @@ def SetConsecutiveErrorsBreaker():
 
 	if choise == 'q' or choise == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.AddingSettingsMenu()
 	try:
 		int(choise)
 	except:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SetConsecutiveErrorsBreaker()
 
@@ -718,7 +718,7 @@ def SetConsecutiveErrorsBreaker():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
@@ -735,14 +735,14 @@ def SetConsecutiveErrorsBreaker():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
 
 	else:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SetConsecutiveErrorsBreaker()
 
@@ -769,7 +769,7 @@ def SetStartPoint():
 
 	if choise == 'q' or choise == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.AddingSettingsMenu()
 
@@ -782,7 +782,7 @@ def SetStartPoint():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
@@ -796,14 +796,14 @@ def SetStartPoint():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
 
 	else:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SetStartPoint()
 
@@ -831,7 +831,7 @@ def SetAddUsing():
 
 	if choise == 'q' or choise == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.AddingSettingsMenu()
 
@@ -844,7 +844,7 @@ def SetAddUsing():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
@@ -858,7 +858,7 @@ def SetAddUsing():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
@@ -872,14 +872,14 @@ def SetAddUsing():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
 
 	else:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SetAddUsing()
 
@@ -941,14 +941,14 @@ def SetAddPause():
 
 	if choise == 'q' or choise == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.AddingSettingsMenu()
 	try:
 		int(choise)
 	except:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SetAddPause()
 
@@ -961,7 +961,7 @@ def SetAddPause():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
@@ -1006,7 +1006,7 @@ def SetAddPause():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
@@ -1051,7 +1051,7 @@ def SetAddPause():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
@@ -1065,14 +1065,14 @@ def SetAddPause():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
 
 	else:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SetAddPause()
 
@@ -1121,7 +1121,7 @@ def SetRandomPause():
 
 	if choise == 'q' or choise == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.AddingSettingsMenu()
 	
@@ -1129,7 +1129,7 @@ def SetRandomPause():
 		int(choise)
 	except:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SetRandomPause()
 
@@ -1142,7 +1142,7 @@ def SetRandomPause():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
@@ -1169,7 +1169,7 @@ def SetRandomPause():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
@@ -1206,7 +1206,7 @@ def SetRandomPause():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
@@ -1220,14 +1220,13 @@ def SetRandomPause():
 		cnfFile.close()
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		menu.AddingSettingsMenu()
 
 	else:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SetRandomPause()
-
