@@ -71,7 +71,7 @@ def checkSettings(if_false_create):
 			settings.add_section("general_settings")
 			settings.set("general_settings", "log", translations['disabilitato_first_cap'])
 			settings.set("general_settings", "analyze_account", "doublegram_owner")
-			setup = open("data/settings.data", "w")
+			setup = open("data/settings.data", "w", , encoding="UTF-8")
 			settings.write(setup)
 
 			settings.add_section("adding_settings")
