@@ -40,7 +40,7 @@ except IOError:
 	lang_setting = configparser.RawConfigParser()
 	lang_setting.add_section('lang')
 	lang_setting.set('lang', 'choise', chosen_lang)
-	setup = open('data/lang.data', 'w')
+	setup = open('data/lang.data', 'w', encoding="UTF-8")
 	lang_setting.write(setup)
 	setup.close()
 
