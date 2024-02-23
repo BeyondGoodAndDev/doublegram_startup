@@ -202,8 +202,15 @@ def SetLogs():
 		cnfFile.close()
 		log = translations['abilitato_first_cap']
 		
-		python = sys.executable
-		os.execl(python, python, * sys.argv)
+		if os.name=='nt':
+			print()
+			print(" [+] "+translations['riavvio_necessario'])
+			print(" [+] "+translations['riavvio_necessario_1'])
+			print(colors.wreset)
+			sys.exit()
+		else:
+			python = sys.executable
+			os.execl(python, python, * sys.argv)
 
 	elif choise == '2':
 		config = configparser.ConfigParser()
@@ -214,8 +221,15 @@ def SetLogs():
 		cnfFile.close()
 		log = translations['disabilitato_first_cap']
 
-		python = sys.executable
-		os.execl(python, python, * sys.argv)
+		if os.name=='nt':
+			print()
+			print(" [+] "+translations['riavvio_necessario'])
+			print(" [+] "+translations['riavvio_necessario_1'])
+			print(colors.wreset)
+			sys.exit()
+		else:
+			python = sys.executable
+			os.execl(python, python, * sys.argv)
 
 	else:
 		if log == translations['disabilitato_first_cap']:
