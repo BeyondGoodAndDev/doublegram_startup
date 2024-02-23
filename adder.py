@@ -46,7 +46,7 @@ except IOError:
 	lang_setting = configparser.RawConfigParser()
 	lang_setting.add_section('lang')
 	lang_setting.set('lang', 'choise', chosen_lang)
-	setup = open('data/lang.data', 'w')
+	setup = open('data/lang.data', 'w', encoding="UTF-8")
 	lang_setting.write(setup)
 	setup.close()
 
@@ -102,7 +102,7 @@ async def VoipAdderJob(client,users,selected_group,group_entity_complete,invite,
 			try:
 				target_group_entity = await client.get_entity(InputPeerChannel(selected_group.id, selected_group.access_hash))
 			except:
-				print(colors.re+" "+translations['errore_imprevisto'])
+				print(colors.re+" "+translations['errore_imprevisto']+colors.wreset)
 				target_group_entity = False
 
 			if target_group_entity != False and breaker == False:
