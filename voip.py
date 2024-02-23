@@ -43,7 +43,7 @@ except IOError:
 	lang_setting = configparser.RawConfigParser()
 	lang_setting.add_section('lang')
 	lang_setting.set('lang', 'choise', chosen_lang)
-	setup = open('data/lang.data', 'w')
+	setup = open('data/lang.data', 'w', encoding="UTF-8")
 	lang_setting.write(setup)
 	setup.close()
 
@@ -213,6 +213,7 @@ def ManageAccountList(write_method):
 		print()
 		
 		print(colors.cy+" "+translations['digita_scelta_arrow_line'])
+		choise = False
 		choise = input(colors.cy+" "+translations['digita_tua_scelta_arrow']+" "+colors.gr)
 	
 	else:
@@ -220,7 +221,7 @@ def ManageAccountList(write_method):
 
 	if choise == 'Y' or choise == 'y':
 		if log == translations['disabilitato_first_cap']:
-			os.system("clear")
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 
 		if write_method == 0:
@@ -263,11 +264,16 @@ def ManageAccountList(write_method):
 		print()
 		
 		print(colors.cy+" "+translations['digita_scelta_arrow_line'])
-		num_voip = input(colors.cy+" "+translations['digita_tua_scelta_arrow']+" "+colors.gr)
+
+		try:
+			num_voip = input(colors.cy+" "+translations['digita_tua_scelta_arrow']+" "+colors.gr)
+		except EOFError:
+			num_voip = ''
+			pass
 
 		if num_voip == 'q' or num_voip == 'Q' or num_voip == '':
 			if log == translations['disabilitato_first_cap']:
-				os.system("clear")
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 			if write_method == 0:
 				menu.ManageAccounts()
@@ -275,15 +281,17 @@ def ManageAccountList(write_method):
 				menu.PrincipalMenu()
 		try:
 			num_voip = int(num_voip)
-
+		except EOFError:
+			pass
+		
 			if num_voip == 0:
 				if log == translations['disabilitato_first_cap']:
-					os.system("clear")
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				ManageAccountList(write_method)
 		except:
 			if log == translations['disabilitato_first_cap']:
-				os.system("clear")
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 			ManageAccountList(write_method)
 
@@ -294,7 +302,7 @@ def ManageAccountList(write_method):
 			num_voip = num_voip+start
 
 		if log == translations['disabilitato_first_cap']:
-				os.system("clear")
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 
 		while i < num_voip:
@@ -312,36 +320,43 @@ def ManageAccountList(write_method):
 			print(colors.gr+" "+translations['inserisci_dati_account_line'])
 			time.sleep(0.2)
 
-			phone = input(colors.cy+" "+translations['inserisci_numero_telefono']+" "+colors.gr)
-			time.sleep(0.2)
+			try:
+				phone = input(colors.cy+" "+translations['inserisci_numero_telefono']+" "+colors.gr)
+				time.sleep(0.2)
+			except EOFError:
+				pass
 
 			if phone == 'q' or phone == 'Q' or phone == '':
 				if log == translations['disabilitato_first_cap']:
-					os.system("clear")
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				if write_method == 0:
 					menu.ManageAccounts()
 				else:
 					menu.PrincipalMenu()
-
-			apiID = input(colors.cy+" "+translations['inserisci_api_id']+" "+colors.gr)
-			time.sleep(0.2)
+			try:
+				apiID = input(colors.cy+" "+translations['inserisci_api_id']+" "+colors.gr)
+				time.sleep(0.2)
+			except EOFError:
+				pass
 
 			if apiID == 'q' or apiID == 'Q' or apiID == '':
 				if log == translations['disabilitato_first_cap']:
-					os.system("clear")
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				if write_method == 0:
 					menu.ManageAccounts()
 				else:
 					menu.PrincipalMenu()
-
-			hashID = input(colors.cy+" "+translations['inserisci_hash_id']+" "+colors.gr)
-			time.sleep(0.2)
+			try:
+				hashID = input(colors.cy+" "+translations['inserisci_hash_id']+" "+colors.gr)
+				time.sleep(0.2)
+			except EOFError:
+				pass
 
 			if hashID == 'q' or hashID == 'Q' or hashID == '':
 				if log == translations['disabilitato_first_cap']:
-					os.system("clear")
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				if write_method == 0:
 					menu.ManageAccounts()
@@ -371,7 +386,7 @@ def ManageAccountList(write_method):
 				credenziali.set('credenziali'+str(i), 'username', '@'+username)
 				credenziali.set('credenziali'+str(i), 'status', 'Enabled')
 
-				setup = open('data/config.data', method)
+				setup = open('data/config.data', method, encoding="utf-8")
 				credenziali.write(setup)
 				setup.close()
 
@@ -382,7 +397,7 @@ def ManageAccountList(write_method):
 				client.disconnect()
 
 				if log == translations['disabilitato_first_cap']:
-					os.system("clear")
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 			else:
 				print()
@@ -393,13 +408,13 @@ def ManageAccountList(write_method):
 			i = i+1 
 
 		if log == translations['disabilitato_first_cap']:
-			os.system("clear")
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.PrincipalMenu()
 
 	elif choise == 'q' or choise == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system("clear")
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		if write_method == 0:
 			menu.ManageAccounts()
@@ -408,7 +423,7 @@ def ManageAccountList(write_method):
 
 	else:
 		if log == translations['disabilitato_first_cap']:
-			os.system("clear")
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		ManageAccountList(write_method)
 		
@@ -418,7 +433,6 @@ def handler(signum, frame) -> int:
 		res = 0
 		while res != 'Y' and res != 'y' and res != 'N' and res != 'n':
 			print()
-
 			print()
 			print(colors.cy+" "+translations['vuoi_interrompere'])
 			print(colors.cy+" "+translations['vuoi_interrompere_line'])
@@ -427,8 +441,15 @@ def handler(signum, frame) -> int:
 		if res == 'y' or res == 'Y':
 			global breaker_analysis
 			breaker_analysis = True
-			python = sys.executable
-			os.execl(python, python, * sys.argv)
+			if os.name=='nt':
+				print()
+				print(" [+] "+translations['riavvio_necessario'])
+				print(" [+] "+translations['riavvio_necessario_1'])
+				print(colors.wreset)
+				sys.exit()
+			else:
+				python = sys.executable
+				os.execl(python, python, * sys.argv)
 
 signal.signal(signal.SIGINT, handler)
 
@@ -452,7 +473,7 @@ def AnalyzeAccounts():
 	activeAnalysis()
 
 	if log == translations['disabilitato_first_cap']:
-		os.system("clear")
+		os.system('cls' if os.name=='nt' else 'clear')
 		banner.banner()
 	else:
 		print()
@@ -594,7 +615,7 @@ def AnalyzeAccounts():
 			accounts.set('credenziali'+str(i), 'username', voips[i]['username'])
 			accounts.set('credenziali'+str(i), 'status', voips[i]['status'])
 			
-			setup = open('data/config.data', method) 
+			setup = open('data/config.data', method, encoding="UTF-8") 
 			accounts.write(setup)
 			setup.close()
 			
@@ -886,7 +907,7 @@ def EditAccount():
 		accounts.set('credenziali'+str(i), 'username', voips[i]['username'])
 		accounts.set('credenziali'+str(i), 'status', voips[i]['status'])
 		
-		setup = open('data/config.data', method) 
+		setup = open('data/config.data', method, encoding="UTF-8") 
 		accounts.write(setup)
 		setup.close()
 		
@@ -965,13 +986,13 @@ def DeleteAccount():
 
 		if choise == 'q' or choise == 'Q':
 			if log == translations['disabilitato_first_cap']:
-				os.system("clear")
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 			DeleteAccount()
 		
 		elif choise != 'y' and choise != 'Y':
 			if log == translations['disabilitato_first_cap']:
-				os.system("clear")
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 			DeleteAccount()
 		
@@ -986,7 +1007,7 @@ def DeleteAccount():
 				client = test_connection(cpass['credenziali'+str(voip_index_this)]['phone'],cpass['credenziali'+str(voip_index_this)]['apiID'],cpass['credenziali'+str(voip_index_this)]['hashID'],silent_mode=True)
 			except:
 				if log == translations['disabilitato_first_cap']:
-					os.system("clear")
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				print(colors.re+" "+translations['impossibile_collegarsi_dest_selezionato'])
 				client.disconnect()
@@ -1022,7 +1043,7 @@ def DeleteAccount():
 					accounts.set('credenziali'+str(i), 'username', voips[i]['username'])
 					accounts.set('credenziali'+str(i), 'status', voips[i]['status'])
 					
-					setup = open('data/config.data', method) 
+					setup = open('data/config.data', method, encoding="UTF-8") 
 					accounts.write(setup)
 					setup.close()
 				
