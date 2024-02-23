@@ -42,7 +42,7 @@ except IOError:
 	lang_setting = configparser.RawConfigParser()
 	lang_setting.add_section('lang')
 	lang_setting.set('lang', 'choise', chosen_lang)
-	setup = open('data/lang.data', 'w')
+	setup = open('data/lang.data', 'w', encoding="UTF-8")
 	lang_setting.write(setup)
 	setup.close()
 
@@ -72,7 +72,7 @@ def continueToPrincipal():
 	choise = input(colors.cy+translations['continue_principal_txt']+colors.gr)
 	
 	if log == translations['disabilitato_first_cap']:
-		os.system('clear')
+		os.system('cls' if os.name=='nt' else 'clear')
 		banner.banner()
 	PrincipalMenu()
 
@@ -82,12 +82,12 @@ def PrincipalMenu(show_menu=True):
 		log = settings.getSetting('log','general_settings')
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 	else:
 		log = settings.getSetting('log','general_settings')
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 	
 	cpass = configparser.RawConfigParser()
@@ -120,7 +120,7 @@ def PrincipalMenu(show_menu=True):
 				choise = int(setChoise())
 			except:
 				if log == translations['disabilitato_first_cap']:
-					os.system('clear')
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				PrincipalMenu()
 
@@ -129,43 +129,43 @@ def PrincipalMenu(show_menu=True):
 
 	if choise == 1:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		ManageAccountList(1)
 		
 	elif choise == 4:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		MembersMenu()
 
 	elif choise == 2:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		ManageAccounts()
 
 	elif(choise == 3):
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		AnalyzeAccounts()
 
 	elif(choise == 5):
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		AddingMenu()
 
 	elif(choise == 6):
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SettingsMenu()
 
 	elif(choise == 7):
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		AddingSettingsMenu()
 
@@ -174,7 +174,7 @@ def PrincipalMenu(show_menu=True):
 
 	else:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		PrincipalMenu()
 
@@ -238,7 +238,7 @@ def MembersMenu():
 
 			if choise == 'q' or choise == 'Q':
 				if log == translations['disabilitato_first_cap']:
-					os.system('clear')
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				PrincipalMenu()
 
@@ -246,37 +246,37 @@ def MembersMenu():
 				choise = int(choise)
 			except:
 				if log == translations['disabilitato_first_cap']:
-					os.system('clear')
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				MembersMenu()
 
 			if choise == 1:
 				if log == translations['disabilitato_first_cap']:
-					os.system('clear')
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				SelectScrapingMethod(translations['opt_overwrite'])
 
 			elif choise == 3:
 				if log == translations['disabilitato_first_cap']:
-					os.system('clear')
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				AddingMenu()
 
 			elif choise == 2:
 				if log == translations['disabilitato_first_cap']:
-					os.system('clear')
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				SelectScrapingMethod(translations['opt_add_to'])
 
 			else:
 				if log == translations['disabilitato_first_cap']:
-					os.system('clear')
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				MembersMenu()
 
 	except IOError:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		MembersMenu()
 
@@ -303,7 +303,7 @@ def SelectScrapingMethod(mode):
 
 	if choise == 'q' or choise == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		MembersMenu()
 
@@ -311,55 +311,55 @@ def SelectScrapingMethod(mode):
 		choise = int(choise)
 	except:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SelectScrapingMethod(mode)
 
 	
 	if choise == 1:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		if mode == translations['opt_overwrite']:
 			RewriteMembers('method_1')
 		else:
 			if log == translations['disabilitato_first_cap']:
-				os.system('clear')
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 			AddMembers('method_1')
 
 	elif choise == 2:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		if mode == translations['opt_overwrite']:
 			RewriteMembers('method_2')
 		else:
 			if log == translations['disabilitato_first_cap']:
-				os.system('clear')
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 			AddMembers('method_2')
 
 	elif choise == 3:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		if mode == translations['opt_overwrite']:
 			RewriteMembers('method_3')
 		else:
 			if log == translations['disabilitato_first_cap']:
-				os.system('clear')
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 			AddMembers('method_3')
 
 	else:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SelectScrapingMethod(mode)
 
 	if log == translations['disabilitato_first_cap']:
-		os.system('clear')
+		os.system('cls' if os.name=='nt' else 'clear')
 		banner.banner()
 	
 
@@ -381,7 +381,7 @@ def AddingMenu():
 
 	if choise == 'q' or choise == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		PrincipalMenu()
 
@@ -389,25 +389,25 @@ def AddingMenu():
 		choise = int(choise)
 	except:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		AddingMenu()
 
 	if choise == 1:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		AddUsers(voip_index=None)
 
 	elif choise == 2:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		AddingSettingsMenu()
 
 	else:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		AddingMenu()
 
@@ -430,7 +430,7 @@ def ManageAccounts():
 
 	if choise == 'q' or choise == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		PrincipalMenu()
 
@@ -438,33 +438,33 @@ def ManageAccounts():
 		choise = int(choise)
 	except:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		ManageAccounts()
 
 	if choise == 1:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		ManageAccountList(0)
 
 	if choise == 2:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		EditAccount()
 
 
 	elif choise == 3:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		DeleteAccount()
 
 
 	else:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		ManageAccounts()
 
@@ -491,7 +491,7 @@ def SettingsMenu(close=False):
 
 	if choise == 'q' or choise == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		PrincipalMenu()
 
@@ -499,31 +499,31 @@ def SettingsMenu(close=False):
 		choise = int(choise)
 	except:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SettingsMenu()
 
 	if choise == 1:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		settings.SetLogs()
 
 	if choise == 2:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		settings.SetAnalyzeAccount()
 
 	if choise == 3:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		settings.SetLanguage()
 
 	else:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SettingsMenu()
 
@@ -566,7 +566,7 @@ def AddingSettingsMenu():
 
 	if choise == 'q' or choise == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		AddingMenu()
 
@@ -574,60 +574,60 @@ def AddingSettingsMenu():
 		choise = int(choise)
 	except:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		AddingSettingsMenu()
 
 	if choise == 1:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		settings.SetChangeEveryNAdded()
 
 	if choise == 2:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		settings.SetPauseBetweenAccounts()
 
 	if choise == 3:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		settings.SetConsecutiveErrorsBreaker()
 
 	if choise == 4:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		settings.SetStartPoint()
 
 	if choise == 5:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		settings.SetAddUsing()
 
 	if choise == 6:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		settings.SetAddPause()
 
 	if choise == 7:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		settings.SetRandomPause()
 
 	if choise == 8:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		settings.SetStopMaxAdding()
 
 	else:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		AddingSettingsMenu()
