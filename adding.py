@@ -46,7 +46,7 @@ except IOError:
 	lang_setting = configparser.RawConfigParser()
 	lang_setting.add_section('lang')
 	lang_setting.set('lang', 'choise', chosen_lang)
-	setup = open('data/lang.data', 'w')
+	setup = open('data/lang.data', 'w', encoding="UTF-8")
 	lang_setting.write(setup)
 	setup.close()
 
@@ -89,9 +89,9 @@ def AddUsers(voip_index):
 
 		if voip_index == 'q' or voip_index == 'Q':
 			if log == translations['disabilitato_first_cap']:
-				os.system('clear')
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
-			menu.ManageAccounts()
+			menu.AddingMenu()
 		else:
 
 			try:
@@ -125,7 +125,7 @@ def AddUsers(voip_index):
 			
 			if selected_group == 'q' or selected_group == 'Q':
 				if log == translations['disabilitato_first_cap']:
-					os.system('clear')
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				AddUsers(voip_index=None)
 			else:
@@ -198,7 +198,7 @@ def AddUsers(voip_index):
 				choise = input(colors.cy+" "+translations['invio_continuare']+" "+colors.gr)
 
 				if log == translations['disabilitato_first_cap']:
-					os.system('clear')
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				menu.AddingMenu()
 			
@@ -209,6 +209,6 @@ def AddUsers(voip_index):
 		choise = input(colors.cy+" "+translations['invio_continuare']+" "+colors.gr)
 
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.AddingMenu()
