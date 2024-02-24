@@ -98,18 +98,18 @@ def AddUsers(voip_index):
 				voip_index_mem = int(voip_index)
 			except:
 				if log == translations['disabilitato_first_cap']:
-					os.system("clear")
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				print(colors.re+" [!] Scelta non valida")
 				AddUsers(voip_index=None)
 
 			if log == translations['disabilitato_first_cap']:
-				os.system("clear")
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 
 			if is_error == True:
 				if log == translations['disabilitato_first_cap']:
-					os.system("clear")
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				print()
 				print(colors.re+" "+translations['impossibile_questo_account'])
@@ -131,7 +131,7 @@ def AddUsers(voip_index):
 			else:
 				if selected_group == False:
 					if log == translations['disabilitato_first_cap']:
-						os.system("clear")
+						os.system('cls' if os.name=='nt' else 'clear')
 						banner.banner()
 					AddUsers(voip_index)
 
@@ -142,7 +142,7 @@ def AddUsers(voip_index):
 					client_voip = test_connection(cpass['credenziali'+str(voip_index_this)]['phone'],cpass['credenziali'+str(voip_index_this)]['apiID'],cpass['credenziali'+str(voip_index_this)]['hashID'],silent_mode=True)
 				except:
 					if log == translations['disabilitato_first_cap']:
-						os.system("clear")
+						os.system('cls' if os.name=='nt' else 'clear')
 						banner.banner()
 					print(colors.re+" "+translations['impossibile_collegarsi_selezionato'])
 					AddUsers(voip_index=None)
@@ -164,7 +164,7 @@ def AddUsers(voip_index):
 					invite = False
 
 				if log == translations['disabilitato_first_cap']:
-					os.system("clear")
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				
 				print(translations['recupero_presenti'])
@@ -175,18 +175,25 @@ def AddUsers(voip_index):
 				except:
 					print(translations['recupero_presenti_1'])
 					all_participants = False
+					is_error_participants = True
 
 				try:
 					all_kicked = client_voip.get_participants(selected_group, aggressive=False, filter=ChannelParticipantsKicked)
 				except:
 					print(translations['recupero_presenti_2'])
 					all_kicked = False
+					is_error_participants = True
 
 				try:
 					all_banned = client_voip.get_participants(selected_group, aggressive=False, filter=ChannelParticipantsBanned)
 				except:
 					print(translations['recupero_presenti_3'])
 					all_banned = False
+					is_error_participants = True
+				
+				if is_error_participants == True:
+					print(" [+] "+translations['recupero_presenti_final'])
+
 
 				client_voip.disconnect()
 

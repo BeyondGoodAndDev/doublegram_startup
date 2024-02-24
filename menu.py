@@ -115,6 +115,7 @@ def PrincipalMenu(show_menu=True):
 			
 			print()
 			print(colors.cy+"  8 | "+translations['esci'])
+			print(colors.wreset)
 			
 			try:
 				choise = int(setChoise())
@@ -170,6 +171,7 @@ def PrincipalMenu(show_menu=True):
 		AddingSettingsMenu()
 
 	elif(choise == 8):
+		print(colors.wreset)
 		sys.exit()
 
 	else:

@@ -36,7 +36,7 @@ except IOError:
 	lang_setting = configparser.RawConfigParser()
 	lang_setting.add_section('lang')
 	lang_setting.set('lang', 'choise', chosen_lang)
-	setup = open('data/lang.data', 'w')
+	setup = open('data/lang.data', 'w', encoding="UTF-8")
 	lang_setting.write(setup)
 	setup.close()
 
@@ -55,7 +55,7 @@ colors.getColors()
 
 def banner(is_update=False,last_version=False,notice=False,start=False):
 	if start == True:
-		os.system("clear")
+		os.system('cls' if os.name=='nt' else 'clear')
 		print()
 		print(colors.cy+" .::::::::::..        "+colors.gr+"                  ")
 		print(colors.cy+" -+++++++++++++=-.    "+colors.gr+"                  ")
@@ -93,11 +93,11 @@ def banner(is_update=False,last_version=False,notice=False,start=False):
 			print()
 			choise = input(" "+translations['invio_continuare'])
 		
-		os.system("clear")
+		os.system('cls' if os.name=='nt' else 'clear')
 
 	print(colors.gr+"------------------------")
 	print(colors.gr+"|"+colors.wy+colors.wm+" -------------------- "+colors.wreset+colors.gr+"|")
-	print(colors.gr+"|"+colors.wm+colors.wy+" | DOUBLEGRAM V1.3  | "+colors.wreset+colors.gr+"|")
+	print(colors.gr+"|"+colors.wm+colors.wy+" | DOUBLEGRAM V1.4  | "+colors.wreset+colors.gr+"|")
 	print(colors.gr+"|"+colors.wm+colors.wy+" | STARTUP EDITION  | "+colors.wreset+colors.gr+"|")
 	print(colors.gr+"|"+colors.wy+colors.wm+" -------------------- "+colors.wreset+colors.gr+"|")
 	print(colors.gr+"------------------------")

@@ -78,7 +78,7 @@ def AddMembers(scraping_method):
 
 	if voip_index == 'q' or voip_index == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system("clear")
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.SelectScrapingMethod(translations['opt_add_to'])
 	else:
@@ -86,12 +86,12 @@ def AddMembers(scraping_method):
 			voip_index_mem = int(voip_index)
 		except:
 			if log == translations['disabilitato_first_cap']:
-				os.system("clear")
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 			AddMembers(scraping_method)
 
 		if log == translations['disabilitato_first_cap']:
-			os.system("clear")
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		
 		voips = getVoips()
@@ -122,7 +122,7 @@ def AddMembers(scraping_method):
 		selected_group = GroupChannelSelector(voip_index)
 		if selected_group == 'q' or selected_group == 'Q':
 			if log == translations['disabilitato_first_cap']:
-				os.system("clear")
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 			menu.AddMembers(scraping_method)
 		elif selected_group == False:
@@ -131,13 +131,13 @@ def AddMembers(scraping_method):
 			choise = input(colors.cy+" "+translations['invio_continuare']+" "+colors.gr)
 
 			if log == translations['disabilitato_first_cap']:
-				os.system("clear")
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 			AddMembers(scraping_method)
 		else:
 			try:
 				if log == translations['disabilitato_first_cap']:
-					os.system("clear")
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				
 				print()
@@ -157,12 +157,12 @@ def AddMembers(scraping_method):
 				choise = input(colors.cy+" "+translations['invio_continuare']+" "+colors.gr)
 
 				if log == translations['disabilitato_first_cap']:
-					os.system("clear")
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				AddMembers(scraping_method)
 			
 		if log == translations['disabilitato_first_cap']:
-			os.system("clear")
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.MembersMenu()
 
@@ -185,7 +185,7 @@ def RewriteMembers(scraping_method):
 
 	if voip_index == 'q' or voip_index == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system("clear")
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.SelectScrapingMethod(translations['opt_overwrite'])
 	else:
@@ -193,12 +193,12 @@ def RewriteMembers(scraping_method):
 			voip_index_mem = int(voip_index)
 		except:
 			if log == translations['disabilitato_first_cap']:
-				os.system("clear")
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 			RewriteMembers(scraping_method)
 
 		if log == translations['disabilitato_first_cap']:
-			os.system("clear")
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		
 		voips = getVoips()
@@ -229,7 +229,7 @@ def RewriteMembers(scraping_method):
 		selected_group = GroupChannelSelector(voip_index)
 		if selected_group == 'q' or selected_group == 'Q':
 			if log == translations['disabilitato_first_cap']:
-				os.system("clear")
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 			menu.RewriteMembers(scraping_method)
 		elif selected_group == False:
@@ -238,13 +238,13 @@ def RewriteMembers(scraping_method):
 			choise = input(colors.cy+" "+translations['invio_continuare']+" "+colors.gr)
 
 			if log == translations['disabilitato_first_cap']:
-				os.system("clear")
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 			RewriteMembers(scraping_method)
 		else:
 			try:
 				if log == translations['disabilitato_first_cap']:
-					os.system("clear")
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				
 				print()
@@ -264,12 +264,12 @@ def RewriteMembers(scraping_method):
 				choise = input(colors.cy+" "+translations['invio_continuare']+" "+colors.gr)
 
 				if log == translations['disabilitato_first_cap']:
-					os.system("clear")
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				RewriteMembers(scraping_method)
 			
 		if log == translations['disabilitato_first_cap']:
-			os.system("clear")
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.MembersMenu()
 
@@ -1180,7 +1180,7 @@ def ScrapeMethodSelector(voip_index, selected_group, voip_name, scraping_method,
 		choise = input(colors.cy+" "+translations['invio_continuare']+" "+colors.gr)
 
 		if log == translations['disabilitato_first_cap']:
-			os.system("clear")
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.MembersMenu()
 	

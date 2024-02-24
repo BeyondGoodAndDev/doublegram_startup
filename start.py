@@ -46,12 +46,12 @@ except IOError:
 	lang_setting = configparser.RawConfigParser()
 	lang_setting.add_section('lang')
 	lang_setting.set('lang', 'choise', chosen_lang)
-	setup = open('data/lang.data', 'w')
+	setup = open('data/lang.data', 'w', encoding="UTF-8")
 	lang_setting.write(setup)
 	setup.close()
 
 	lang = chosen_lang
-	os.system("clear")
+	os.system('cls' if os.name=='nt' else 'clear')
 
 
 if lang == 'IT' or lang == 'EN':
@@ -65,9 +65,9 @@ if lang == 'IT' or lang == 'EN':
 
 breaker = False 
 
-current_version = '1.3.2'
+current_version = '1.4.0'
 current_edition = 'STARTUP_EDITION'
-serial_id = 'EO9K2W3E9JRF76E5671DIE32'
+serial_id = 'EO9K2W3E9JRF7695671DIEXX'
 
 url = "https://startup.doublegram.com/version_verification.php?edition="+current_edition
 

@@ -470,169 +470,187 @@ def blockAnalysis():
 
 
 def AnalyzeAccounts():
-	activeAnalysis()
+	analyze_account = settings.getSetting('analyze_account','general_settings')
 
-	if log == translations['disabilitato_first_cap']:
-		os.system('cls' if os.name=='nt' else 'clear')
-		banner.banner()
+	if analyze_account == 'doublegram_owner' or analyze_account == 'doublegram_test_user' or analyze_account == '' or analyze_account == '/':
+		print()
+		print(colors.wm+colors.wy+" "+translations['errore_test_user']+" "+colors.wreset)
+		print()
+		menu.continueToPrincipal()
+		
 	else:
+		activeAnalysis()
+
+		if log == translations['disabilitato_first_cap']:
+			os.system('cls' if os.name=='nt' else 'clear')
+			banner.banner()
+		else:
+			print()
+			print()
+
 		print()
+		print(colors.cy+translations['analisi_account_line'])
+		print(colors.cy+translations['analisi_account_cap'])
+		print(colors.cy+translations['analisi_account_line'])
 		print()
 
-	print()
-	print(colors.cy+translations['analisi_account_line'])
-	print(colors.cy+translations['analisi_account_cap'])
-	print(colors.cy+translations['analisi_account_line'])
-	print()
+		restricted_count = 0
+		flood_count = 0
+		cant_connect = 0
+		voips = getVoips() 
+		i = 0
 
-	restricted_count = 0
-	flood_count = 0
-	cant_connect = 0
-	voips = getVoips() 
-	i = 0
+		for account in voips:
+			if breaker_analysis == 0:
+				print(colors.wm+colors.wy+" - "+account['name']+colors.wreset)
 
-	for account in voips:
-		if breaker_analysis == 0:
-			print(colors.wm+colors.wy+" - "+account['name']+colors.wreset)
+				try:
+					client = test_connection(account['phone'],account['apiID'],account['hashID'],silent_mode=True)
+				except:
+					print(colors.re+" "+translations['impossibile_questo_account'])
+					print()
+					cant_connect = cant_connect + 1
 
-			try:
-				client = test_connection(account['phone'],account['apiID'],account['hashID'],silent_mode=True)
-			except:
-				print(colors.re+" "+translations['impossibile_questo_account'])
-				print()
-				cant_connect = cant_connect + 1
-
-			is_client = True
-			
-			try:
-				me = client.get_me()
-				if me == None:
-					is_client = False
-			except:
-				is_client = False
-
-			if client != False and is_client == True:
-
-				name = getName(client)
-				restricted = getRestricted(client)
-				flood = getFlood(client)
-				username = getUsername(client)
-				
-				if username == None:
-					username = '/'
-				else:
-					username = '@'+username
-				
-				ids = getId(client)
-				access_hash = getAccessHash(client)
-				userfull = client(GetFullUserRequest(client.get_me()))
+				is_client = True
 				
 				try:
-					bio = userfull.full_user.about
+					me = client.get_me()
+					if me == None:
+						is_client = False
 				except:
-					bio = ''
+					is_client = False
 
-				client.disconnect()
-				account['name'] = name
-				account['id'] = ids
-				account['access_hash'] = access_hash
-				account['username'] = username
+				if client != False and is_client == True:
 
-				if restricted == True:
-					restricted_txt = colors.re+translations['si_first_cap']
-					restricted_count = restricted_count + 1
+					name = getName(client)
+					restricted = getRestricted(client)
+					flood = getFlood(client)
+					username = getUsername(client)
+					
+					if username == None:
+						username = '/'
+					else:
+						username = '@'+username
+					
+					ids = getId(client)
+					access_hash = getAccessHash(client)
+					userfull = client(GetFullUserRequest(client.get_me()))
+					
+					try:
+						bio = userfull.full_user.about
+					except:
+						bio = ''
+
+					client.disconnect()
+					account['name'] = name
+					account['id'] = ids
+					account['access_hash'] = access_hash
+					account['username'] = username
+
+					if restricted == True:
+						restricted_txt = colors.re+translations['si_first_cap']
+						restricted_count = restricted_count + 1
+					else:
+						restricted_txt = colors.wy+translations['no_first_cap']
+
+					if flood == True:
+						flood_txt = colors.re+translations['si_first_cap']
+						flood_count = flood_count + 1
+					else:
+						flood_txt = colors.wy+translations['no_first_cap']
+
+					if bio == None:
+						bio = '/'
+
+					if account['status'] == 'Enabled':
+						status_txt = translations['abilitato_first_cap']
+					else:
+						status_txt = translations['disabilitato_first_cap']
+					
+					print(colors.cy+" "+translations['nome_completo']+" "+colors.wy+name)
+					print(colors.cy+" "+translations['username_first_cap']+": "+colors.wy+username)
+					print(colors.cy+" "+translations['telefono']+": "+colors.wy+account['phone'])
+					print(colors.cy+" "+translations['stato_doublegram']+": "+colors.wy+status_txt)
+					print(colors.cy+" "+translations['biografia']+":")
+					print(" "+colors.wy+bio)
+					print(colors.cy+" "+translations['limitato']+": "+colors.wy+restricted_txt)
+					print(colors.cy+" "+translations['flood']+": "+colors.wy+flood_txt)
+					print()
+					print("------------------------------")
+					print()
+
 				else:
-					restricted_txt = colors.wy+translations['no_first_cap']
+					print(colors.re+" "+translations['impossibile_questo_account'])
+					print()
+					account['status'] = 'Disabled'
+					cant_connect = cant_connect + 1
 
-				if flood == True:
-					flood_txt = colors.re+translations['si_first_cap']
-					flood_count = flood_count + 1
-				else:
-					flood_txt = colors.wy+translations['no_first_cap']
+				i = i + 1
 
-				if bio == None:
-					bio = '/'
+		if breaker_analysis == 0:
+			
+			print(" "+colors.wm+colors.wy+" "+str(i)+" "+translations['account_totali_cap']+" "+colors.wreset)
+			print()
+			print(" "+colors.wg+colors.wy+" "+str(i - restricted_count - cant_connect - flood_count)+" "+translations['account_liberi_cap']+" "+colors.wreset)
+			print()
+			print(" "+colors.wo+colors.wy+" "+str(flood_count)+" "+translations['account_flood_cap']+" "+colors.wreset)
+			print()
+			print(" "+colors.wr+colors.wy+" "+str(restricted_count)+" "+translations['account_limitati_cap']+" "+colors.wreset)
+			print()
+			print(" "+colors.wr+colors.wy+" "+str(cant_connect)+" "+translations['account_falliti_cap']+" "+colors.wreset)
+			print()
 
-				if account['status'] == 'Enabled':
-					status_txt = translations['abilitato_first_cap']
-				else:
-					status_txt = translations['disabilitato_first_cap']
+			i = 0
+			f = 0
+			length = len(voips)
+			
+			while i < length:
 				
-				print(colors.cy+" "+translations['nome_completo']+" "+colors.wy+name)
-				print(colors.cy+" "+translations['username_first_cap']+": "+colors.wy+username)
-				print(colors.cy+" "+translations['telefono']+": "+colors.wy+account['phone'])
-				print(colors.cy+" "+translations['stato_doublegram']+": "+colors.wy+status_txt)
-				print(colors.cy+" "+translations['biografia']+":")
-				print(" "+colors.wy+bio)
-				print(colors.cy+" "+translations['limitato']+": "+colors.wy+restricted_txt)
-				print(colors.cy+" "+translations['flood']+": "+colors.wy+flood_txt)
-				print()
-				print("------------------------------")
-				print()
+				if f == 0:
+					method = 'w'
+				else:
+					method = 'a'	
 
-			else:
-				print(colors.re+" "+translations['impossibile_questo_account'])
-				print()
-				account['status'] = 'Disabled'
-				cant_connect = cant_connect + 1
-
-			i = i + 1
-
-	if breaker_analysis == 0:
-		
-		print(" "+colors.wm+colors.wy+" "+str(i)+" "+translations['account_totali_cap']+" "+colors.wreset)
-		print()
-		print(" "+colors.wg+colors.wy+" "+str(i - restricted_count - cant_connect - flood_count)+" "+translations['account_liberi_cap']+" "+colors.wreset)
-		print()
-		print(" "+colors.wo+colors.wy+" "+str(flood_count)+" "+translations['account_flood_cap']+" "+colors.wreset)
-		print()
-		print(" "+colors.wr+colors.wy+" "+str(restricted_count)+" "+translations['account_limitati_cap']+" "+colors.wreset)
-		print()
-		print(" "+colors.wr+colors.wy+" "+str(cant_connect)+" "+translations['account_falliti_cap']+" "+colors.wreset)
-		print()
-
-		i = 0
-		f = 0
-		length = len(voips)
-		
-		while i < length:
+				accounts = configparser.RawConfigParser()
+				
+				accounts.add_section('credenziali'+str(i))
 			
-			if f == 0:
-				method = 'w'
-			else:
-				method = 'a'	
+				accounts.set('credenziali'+str(i), 'name', voips[i]['name'])
+				accounts.set('credenziali'+str(i), 'phone', voips[i]['phone'])
+				accounts.set('credenziali'+str(i), 'apiID', voips[i]['apiID'])
+				accounts.set('credenziali'+str(i), 'hashID', voips[i]['hashID'])
+				accounts.set('credenziali'+str(i), 'id', voips[i]['id'])
+				accounts.set('credenziali'+str(i), 'access_hash', voips[i]['access_hash'])
+				accounts.set('credenziali'+str(i), 'username', voips[i]['username'])
+				accounts.set('credenziali'+str(i), 'status', voips[i]['status'])
+				
+				setup = open('data/config.data', method, encoding="UTF-8") 
+				accounts.write(setup)
+				setup.close()
+				
+				f = f+1
+				i = i+1
+		else:
+			blockBreaker()
 
-			accounts = configparser.RawConfigParser()
-			
-			accounts.add_section('credenziali'+str(i))
-		 
-			accounts.set('credenziali'+str(i), 'name', voips[i]['name'])
-			accounts.set('credenziali'+str(i), 'phone', voips[i]['phone'])
-			accounts.set('credenziali'+str(i), 'apiID', voips[i]['apiID'])
-			accounts.set('credenziali'+str(i), 'hashID', voips[i]['hashID'])
-			accounts.set('credenziali'+str(i), 'id', voips[i]['id'])
-			accounts.set('credenziali'+str(i), 'access_hash', voips[i]['access_hash'])
-			accounts.set('credenziali'+str(i), 'username', voips[i]['username'])
-			accounts.set('credenziali'+str(i), 'status', voips[i]['status'])
-			
-			setup = open('data/config.data', method, encoding="UTF-8") 
-			accounts.write(setup)
-			setup.close()
-			
-			f = f+1
-			i = i+1
-	else:
-		blockBreaker()
+		blockAnalysis()
 
-	blockAnalysis()
-
-	menu.continueToPrincipal()
+		menu.continueToPrincipal()
 
 
 def AccountSelector(mode):
 	print()
 	if mode == 'adding':
 		print(colors.wm+colors.wy+" "+translations['inserisci_utenti_cap']+" "+colors.wreset)
+		print()
+		print(colors.gr+" "+translations['seleziona_account_per_destinazione']+" ")
+		print(" "+colors.cy+translations['seleziona_account_per_destinazione_line'])
+	elif mode == 'join':
+		print(colors.wm+colors.wy+" "+translations['ingresso_in_dest_cap']+" "+colors.wreset)
+		print()
+		print(" "+colors.wy+translations['ingresso_in_dest_txt_1'])
+		print(" "+colors.wy+translations['ingresso_in_dest_txt_2'])
+		print(" "+colors.wy+translations['ingresso_in_dest_txt_3'])
 		print()
 		print(colors.gr+" "+translations['seleziona_account_per_destinazione']+" ")
 		print(" "+colors.cy+translations['seleziona_account_per_destinazione_line'])
@@ -657,14 +675,10 @@ def AccountSelector(mode):
 		print(colors.gr+" "+translations['seleziona_account_username'])
 		print(" "+colors.cy+translations['seleziona_account_username_line'])
 	elif mode == 'members':
-		print(colors.wm+colors.wy+" "+translations['preleva_e_aggiungi_cap']+" "+colors.wreset)
-		print()
 		print(colors.gr+" "+translations['seleziona_account_prelevare'])
 		print(colors.cy+" "+translations['seleziona_account_prelevare_line'])
 		print()
 	elif mode == 'members-r':
-		#print(colors.wm+colors.wy+" "+translations['preleva_e_sovrascrivi_cap']+" "+colors.wreset)
-		#print()
 		print(colors.gr+" "+translations['seleziona_account_prelevare'])
 		print(colors.cy+" "+translations['seleziona_account_prelevare_line'])
 		print()
@@ -788,7 +802,7 @@ def GroupChannelSelector(voip_index):
 				client.disconnect()
 			except:
 				if log == translations['disabilitato_first_cap']:
-					os.system('clear')
+					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				menu.PrincipalMenu()
 			return False
@@ -848,7 +862,7 @@ def EditAccount():
 
 	if voip_index == 'q' or voip_index == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.ManageAccounts()
 	else:
@@ -856,7 +870,7 @@ def EditAccount():
 			voip_index_mem = int(voip_index)
 		except:
 			if log == translations['disabilitato_first_cap']:
-				os.system('clear')
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 			print(colors.re+" "+translations['scelta_non_valida'])
 			EditAccount()
@@ -879,7 +893,7 @@ def EditAccount():
 
 	if found == False:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		print(colors.re+" "+translations['scelta_non_valida'])
 		EditAccount()
@@ -915,7 +929,7 @@ def EditAccount():
 		i = i+1
 
 	if log == translations['disabilitato_first_cap']:
-		os.system('clear')
+		os.system('cls' if os.name=='nt' else 'clear')
 		banner.banner()
 
 		if status == 'Enabled':
@@ -934,7 +948,7 @@ def DeleteAccount():
 
 	if voip_index == 'q' or voip_index == 'Q':
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		menu.ManageAccounts()
 	else:
@@ -942,7 +956,7 @@ def DeleteAccount():
 			voip_index_mem = int(voip_index)
 		except:
 			if log == translations['disabilitato_first_cap']:
-				os.system('clear')
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 			print(colors.re+" "+translations['scelta_non_valida'])
 			DeleteAccount()
@@ -953,13 +967,13 @@ def DeleteAccount():
 	
 	if voip_index_mem < 1 or voip_index_mem > length:
 		if log == translations['disabilitato_first_cap']:
-			os.system('clear')
+			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		print(colors.re+" "+translations['scelta_non_valida'])
 		DeleteAccount()
 
 	if log == translations['disabilitato_first_cap']:
-		os.system('clear')
+		os.system('cls' if os.name=='nt' else 'clear')
 		banner.banner()
 		print()
 		print(colors.wm+colors.wy+" "+translations['scollega_account_cap']+" "+colors.wreset)
@@ -1010,14 +1024,18 @@ def DeleteAccount():
 					os.system('cls' if os.name=='nt' else 'clear')
 					banner.banner()
 				print(colors.re+" "+translations['impossibile_collegarsi_dest_selezionato'])
-				client.disconnect()
+				try:
+					client.disconnect()
+				except:
+					pass
 				
 			logged_out = False
-			sessions = client(functions.account.GetAuthorizationsRequest()) 
-			for session in sessions.authorizations:
-				if str(session.api_id) == str(cpass['credenziali'+str(voip_index_this)]['apiID']):
-					result = client.log_out()
-					logged_out = True
+			if client != False:
+				sessions = client(functions.account.GetAuthorizationsRequest()) 
+				for session in sessions.authorizations:
+					if str(session.api_id) == str(cpass['credenziali'+str(voip_index_this)]['apiID']):
+						result = client.log_out()
+						logged_out = True
 
 			while i < length:
 
@@ -1050,7 +1068,7 @@ def DeleteAccount():
 				else:
 					if i == 0 and (int(voip_index)-1) == 0:
 						accounts = configparser.RawConfigParser()
-						setup = open('data/config.data', 'w') 
+						setup = open('data/config.data', 'w', encoding="UTF-8") 
 						accounts.write(setup)
 						setup.close()
 
@@ -1060,7 +1078,7 @@ def DeleteAccount():
 				i = i+1
 	
 			if log == translations['disabilitato_first_cap']:
-				os.system('clear')
+				os.system('cls' if os.name=='nt' else 'clear')
 				banner.banner()
 				
 			print(colors.gr+" [+] "+translations['account_first_cap']+" "+name+" "+translations['eliminato_successo'])

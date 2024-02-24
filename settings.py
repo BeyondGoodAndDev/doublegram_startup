@@ -37,7 +37,7 @@ except IOError:
 	lang_setting = configparser.RawConfigParser()
 	lang_setting.add_section('lang')
 	lang_setting.set('lang', 'choise', chosen_lang)
-	setup = open('data/lang.data', 'w', )
+	setup = open('data/lang.data', 'w', encoding="UTF-8")
 	lang_setting.write(setup)
 	setup.close()
 
@@ -71,7 +71,7 @@ def checkSettings(if_false_create):
 			settings.add_section("general_settings")
 			settings.set("general_settings", "log", translations['disabilitato_first_cap'])
 			settings.set("general_settings", "analyze_account", "doublegram_owner")
-			setup = open("data/settings.data", "w")
+			setup = open("data/settings.data", "w", encoding="UTF-8")
 			settings.write(setup)
 
 			settings.add_section("adding_settings")
@@ -83,7 +83,7 @@ def checkSettings(if_false_create):
 			settings.set("adding_settings", "between_adding_pause", "1-3 "+translations['abbreviazione_secondi']+" ("+translations['casuale']+")")
 			settings.set("adding_settings", "casual_pause_times", "3-120 "+translations['abbreviazione_secondi']+" ("+translations['casuale']+")")
 			settings.set("adding_settings", "stop_max_adding", translations['nessun_limite'])
-			setup = open("data/settings.data", "w")
+			setup = open("data/settings.data", "w", encoding="UTF-8")
 			settings.write(setup)
 			
 			setup.close()
@@ -100,6 +100,10 @@ def getSetting(name,section):
 		for (each_key, each_val) in cpass.items(each_section):
 			if each_section == section and each_key == name:
 				value = each_val
+
+	if name == 'log' and value == 'False':
+		value = translations['disabilitato_first_cap']
+
 	return value
 
 
@@ -170,8 +174,16 @@ def SetLanguage():
 
 	os.remove("data/settings.data")
 
-	python = sys.executable
-	os.execl(python, python, * sys.argv)
+	if os.name=='nt':
+		print()
+		print(" [+] "+translations['riavvio_necessario'])
+		print(" [+] "+translations['riavvio_necessario_1'])
+		print(colors.wreset)
+		sys.exit()
+	else:
+		python = sys.executable
+		os.execl(python, python, * sys.argv)
+
 
 	
 def SetLogs():
@@ -253,8 +265,7 @@ def SetAnalyzeAccount():
 	print()
 	print(colors.cy+" "+colors.cy+translations['premi_q_indietro'])
 	print()
-	print(colors.cy+" 1 | "+colors.wy+"doublegram_owner")
-	print(colors.cy+" 2 | "+colors.wy+translations['inserisci_username_manualmente'])
+	print(colors.cy+" 1 | "+colors.wy+translations['inserisci_username_manualmente'])
 	print()
 	choise = menu.setChoise()
 
@@ -265,14 +276,6 @@ def SetAnalyzeAccount():
 		menu.SettingsMenu()
 
 	elif choise == '1':
-		config = configparser.ConfigParser()
-		config.read('data/settings.data', encoding="UTF-8")
-		cnfFile = open('data/settings.data', "w", encoding="UTF-8")
-		config.set("general_settings","analyze_account",'doublegram_owner')
-		config.write(cnfFile)
-		cnfFile.close()
-
-	elif choise == '2':
 		config = configparser.ConfigParser()
 		config.read('data/settings.data', encoding="UTF-8")
 		
@@ -397,7 +400,7 @@ def SetPauseBetweenAccounts():
 	change_account_pause = getSetting('change_account_pause',"adding_settings")
 
 	print()
-	print(colors.wm+colors.wy+" "+translations['pausa_prossimo_cap']+" "+colors.wreset)
+	print(colors.wm+colors.wy+" "+translations['pausa_ingresso_invito_cap_txt_1']+" "+colors.wreset)
 	print()
 	print(colors.wy+" "+translations['pausa_prossimo_cap_txt_1'])
 	print(colors.wy+" "+translations['pausa_prossimo_cap_txt_2'])
