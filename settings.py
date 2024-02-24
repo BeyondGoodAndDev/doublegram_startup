@@ -70,7 +70,7 @@ def checkSettings(if_false_create):
 			settings = configparser.RawConfigParser()
 			settings.add_section("general_settings")
 			settings.set("general_settings", "log", translations['disabilitato_first_cap'])
-			settings.set("general_settings", "analyze_account", "doublegram_owner")
+			settings.set("general_settings", "analyze_account", "/")
 			setup = open("data/settings.data", "w", encoding="UTF-8")
 			settings.write(setup)
 
