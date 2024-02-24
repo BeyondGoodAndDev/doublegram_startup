@@ -1,6 +1,5 @@
 # Doublegram Startup Edition - Targeting, scraping and adding tool for your groups and channels on Telegram.
 
-![Logo](https://iili.io/JIb3rp2.gif)
 Visit  [Doublegram Official Website](https://doublegram.com) for Pro Edition.
 
 Add thousands of users to your groups and channels using your Telegram accounts. Doublegram let you do that easily and in an automatic and personalized way. 
