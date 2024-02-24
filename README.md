@@ -24,13 +24,6 @@ If you come by a previous Startup Edition of Doublegram just copy and paste all 
 - Now select the filter and the regulation of the adding as your needs
 - Run an adding task to add the users from the list to one of your group or channel
 
-## Screenshots
-
-https://www.dblgrm.me/img/adding.webm 
-https://www.dblgrm.me/img/scraping.gif 
-https://www.dblgrm.me/img/enabledisable.gif 
-https://www.dblgrm.me/img/options.gif 
-
 ## Features
 
 Check https://doublegram.com/features
