@@ -1,4 +1,4 @@
-# Doublegram Startup Edition - Definitive Telegram scraping & adding tool
+# Doublegram Startup Edition - Targeting, scraping and adding tool for your groups and channels on Telegram.
 
 ![Logo](https://iili.io/JIb3rp2.gif)
 Visit  [Doublegram Official Website](https://doublegram.com) for Pro Edition.
