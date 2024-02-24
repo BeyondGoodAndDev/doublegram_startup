@@ -7,9 +7,9 @@ Add thousands of users to your groups and channels using your Telegram accounts.
 
 **A Documentation will be added soon, for now remember to add an account to Doublegram first (disable your 2fa before, you can enable it again after your account is connected to Doublegram), then scrape some members and then add them somewhere**
 
-**OFFICIAL TELEGRAM GROUP STARTUP EDITION (English - Italiano): [www.t.me/doublegram_official](https://t.me/+EHhii69w3YkyMjFk)**
+**OFFICIAL TELEGRAM GROUP STARTUP EDITION (English - Italiano): [Doublegram Startup Group](https://t.me/+EHhii69w3YkyMjFk)**
 
-**OFFICIAL TELEGRAM SUPPORT STARTUP EDITION (English - Italiano): www.t.me/doublegram_owner**
+**OFFICIAL TELEGRAM SUPPORT STARTUP EDITION (English - Italiano): [Doublegram Startup Support](www.t.me/doublegram_owner)**
 
 
 
