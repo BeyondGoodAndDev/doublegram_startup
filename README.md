@@ -1,11 +1,14 @@
-# Doublegram Startup Edition - Targeting, scraping and adding tool for your groups and channels on Telegram.
+Doublegram Startup Edition - Targeting, scraping and adding tool for your groups and channels on Telegram.
 
 This Edition of Doublegram is FREE and Open Source! Visit  [Doublegram Official Website](https://doublegram.com) to buy the Pro Edition.
 
 Add thousands of users to your groups and channels using your Telegram accounts. Doublegram let you do that easily and in an automatic and personalized way. 
 
 
-## Installation and requirements:
+![Logo](https://doublegram.com/img/dbl-git.png)
+
+
+## Installation and requirements
 - Windows, MacOS, Linux (Android too is reported by users, not officially tested)
 - Python >= 3.8
 - pip installed
@@ -14,7 +17,7 @@ Add thousands of users to your groups and channels using your Telegram accounts.
 
 **Remember to add an account to Doublegram first (disable your 2fa before, you can enable it again after your account is connected to Doublegram)**
 
-## Update instructions:
+## Update instructions
 If you come by a previous Startup Edition of Doublegram just copy and paste all the folders inside your current Doublegram folder into the main folder of the new version.
 
 ## How it works
