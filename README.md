@@ -5,7 +5,7 @@ This Edition of Doublegram is FREE and Open Source! Visit  [Doublegram Official 
 Add thousands of users to your groups and channels using your Telegram accounts. Doublegram let you do that easily and in an automatic and personalized way. 
 
 
-![Logo](https://doublegram.com/img/dbl-git.png)
+![Logo](https://doublegram.com/img/dbl-github.png)
 
 
 ## Installation and requirements
