@@ -7,6 +7,8 @@ Add thousands of users to your groups and channels using your Telegram accounts.
 
 ![Logo](https://doublegram.com/img/dbl-github.png)
 
+**OFFICIAL TELEGRAM GROUP STARTUP EDITION (English - Italiano): [Doublegram Startup Group](https://t.me/+EHhii69w3YkyMjFk)**
+
 
 ## Installation and requirements
 - Windows, MacOS, Linux (Android too is reported by users, not officially tested)
