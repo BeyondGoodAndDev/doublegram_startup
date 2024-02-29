@@ -65,9 +65,9 @@ if lang == 'IT' or lang == 'EN':
 
 breaker = False 
 
-current_version = '1.4.0'
+current_version = '1.4.1'
 current_edition = 'STARTUP_EDITION'
-serial_id = 'EO9K2W3E9JRF7695671DIEXX'
+serial_id = 'EO9K2W3KKKRF7695671DIEXX'
 
 url = "https://startup.doublegram.com/version_verification.php?edition="+current_edition
 
