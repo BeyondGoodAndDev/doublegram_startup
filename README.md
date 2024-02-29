@@ -1,6 +1,6 @@
 Doublegram Startup Edition - Targeting, scraping and adding tool for your groups and channels on Telegram.
 
-This Edition of Doublegram is FREE and Open Source! Visit  [Doublegram Official Website](https://doublegram.com) to buy the Pro Edition.
+Visit  [Doublegram Official Website](https://doublegram.com) to buy the Pro Edition.
 
 Add thousands of users to your groups and channels using your Telegram accounts. Doublegram let you do that easily and in an automatic and personalized way. 
 
