@@ -169,6 +169,8 @@ def AddUsers(voip_index):
 				
 				print(translations['recupero_presenti'])
 
+				is_error_participants = False
+
 				try:
 					
 					all_participants = client_voip.get_participants(selected_group, aggressive=False)
