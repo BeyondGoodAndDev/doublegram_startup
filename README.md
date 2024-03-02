@@ -2,6 +2,9 @@ Doublegram Startup Edition - Targeting, scraping and adding tool for your groups
 
 Visit  [Doublegram Official Website](https://doublegram.com) to buy the Pro Edition.
 
+Follow and support the project on X:
+https://x.com/doublegram_wrld
+
 Add thousands of users to your groups and channels using your Telegram accounts. Doublegram let you do that easily and in an automatic and personalized way. 
 
 
@@ -36,8 +39,6 @@ Check https://doublegram.com/features
 You can use screen: $ **screen -s Session_Doublegram**
 then start as said above. After that you can close the terminal when you want and it will continue running. To reopen: $ **screen -ls** to list the active sessions, then $ **screen -r 12345** (change "12345" with the number of your session)
 
-Follow and support the project on X:
-https://x.com/doublegram_wrld
 
 ## Installation video
 [![Doublegram Installation](https://img.youtube.com/vi/IyE0le_DJTg/0.jpg)](https://www.youtube.com/watch?v=IyE0le_DJTg)
