@@ -1,8 +1,8 @@
 Doublegram Startup Edition - Targeting, scraping and adding tool for your groups and channels on Telegram.
 
-Visit  [Doublegram Official Website](https://doublegram.com) to buy the Pro Edition.
+-> Visit  [Doublegram Official Website](https://doublegram.com) to buy the Pro Edition.
 
-Follow and support the project on X:
+-> Follow and support the project on X:
 https://x.com/doublegram_wrld
 
 Add thousands of users to your groups and channels using your Telegram accounts. Doublegram let you do that easily and in an automatic and personalized way. 
