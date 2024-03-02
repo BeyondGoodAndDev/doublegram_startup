@@ -11,7 +11,7 @@ https://x.com/doublegram_wrld
 
 ![Logo](https://doublegram.com/img/dbl-github.png)
 
-**OFFICIAL TELEGRAM GROUP STARTUP EDITION (English - Italiano): [Doublegram Startup Group](https://t.me/+EHhii69w3YkyMjFk)**
+**OFFICIAL TELEGRAM GROUP FOR STARTUP EDITION (English - Italiano): [Doublegram Startup Group](https://t.me/+EHhii69w3YkyMjFk)**
 
 
 ## Installation and requirements
