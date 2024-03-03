@@ -37,8 +37,11 @@ If you come by a previous Startup Edition of Doublegram just copy and paste all 
 Check https://doublegram.com/features
 
 ## How to run in background
-You can use screen: $ **screen -s Session_Doublegram**
-then start as said above. After that you can close the terminal when you want and it will continue running. To reopen: $ **screen -ls** to list the active sessions, then $ **screen -r 12345** (change "12345" with the number of your session)
+You can use Screen: 
+$ **screen -s Session_Doublegram**
+then start as said in the Installation section.
+After that you can close the terminal when you want and it will continue running.
+To reattach to your terminal: $ **screen -ls** to list the active sessions, then $ **screen -r 12345** (change "12345" with the number of your session)
 
 
 ## Installation video
