@@ -15,7 +15,7 @@ Add thousands of users to your groups and channels using your Telegram accounts.
 - Python >= 3.8
 - pip installed
 - run "**pip install telethon==1.26**"
-- To start Doublegram run this in the same folder of start.py file: "**python3 start.py**" (or "py start.py" or "python start.py" for windows users)
+- To start Doublegram run this in the same folder of start.py file: "**python3 start.py**" (or "py start.py" or "python start.py" for Windows users)
 
 **Remember to add an account to Doublegram first (disable your 2fa before, you can enable it again after your account is connected to Doublegram)**
 
