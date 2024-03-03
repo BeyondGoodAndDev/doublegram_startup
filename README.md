@@ -1,10 +1,8 @@
 
 Doublegram Startup Edition - Targeting, scraping and adding tool for your groups and channels on Telegram.
 
-!! VALID UNTIL 4 MARCH 2024 !!
-USE THE CODE "LAUNCHWEEK" TO GET A 30% DISCOUNT ON DOUBLEGRAM PRO AND 
-SUBSCRIBE TO THE NEWSLETTER TO GET ANOTHER 20%
-FOR A 50% TOTAL DISCOUNT!
+**PROMO DOUBLEGRAM PRO JUST THIS WEEK**
+Use the code "LAUNCHWEEK" to get a 30% discount on Doublegram Pro. More on doublegram.com
 
 Add thousands of users to your groups and channels using your Telegram accounts. Doublegram let you do that easily and in an automatic and personalized way. 
 
