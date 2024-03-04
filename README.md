@@ -14,7 +14,7 @@ Add thousands of users to your groups and channels using your Telegram accounts.
 
 
 ## Installation and requirements
-- Windows, MacOS, Linux (Android too is reported by users, not officially tested)
+- Windows, MacOS, Linux and Android with a Python ide!
 - Python >= 3.8
 - pip installed
 - run "**pip install telethon==1.26**"
@@ -46,4 +46,6 @@ To reattach to your terminal: $ **screen -ls** to list the active sessions, then
 ## Installation video
 [![Doublegram Installation](https://img.youtube.com/vi/IyE0le_DJTg/0.jpg)](https://www.youtube.com/watch?v=IyE0le_DJTg)
 
+## Preview video
+https://youtu.be/4cnCM9O_aYg?si=52y2_XBMkgGHywoH
 
