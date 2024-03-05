@@ -1,9 +1,6 @@
 
 Doublegram Startup Edition - Targeting, scraping and adding tool for your groups and channels on Telegram.
 
-50% DISCOUNT CODE FRO DOUBLEGRAM PRO VALID UNTIL 6 MARCH 2024:
-GITHUBPROMO
-
 -> Visit  [Doublegram Official Website](https://doublegram.com) to buy the Pro Edition.
 
 
