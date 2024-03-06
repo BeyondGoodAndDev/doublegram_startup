@@ -22,12 +22,17 @@ Add thousands of users to your groups and channels using your Telegram accounts.
 - Python >= 3.8
 - pip installed
 - run "**pip install telethon==1.26**"
-- To start Doublegram run this in the same folder of start.py file: "**python3 start.py**" (or "py start.py" or "python start.py" for Windows users)
+- Then run this command in the same folder of start.py file: "**python3 start.py**" (or "py start.py" or "python start.py" for Windows users)
 
-**Remember to add an account to Doublegram first (disable your 2fa before, you can enable it again after your account is connected to Doublegram)**
+## Basic steps to add users
+- Add one or more Telegram account to Doublegram
+- Scrape members from a groups or channel where members are visible and create a list of users
+- Add the users from the list to your groups and channels through your Telegram accounts
+  
+**NOTE: (disable your 2fa before, you can enable it again after your account is connected to Doublegram)**
 
 ## Update instructions
-If you come by a previous Startup Edition of Doublegram copy and paste your current data, members, sessions and import folders (if you have it) from your current Doublegram folder to the new one, overwriting the existing files
+Copy and paste your current data, members, sessions and import (if you have it) folders from your current Doublegram folder to the new one, overwriting the existing files.
 
 ## How it works
 - Use your Telegram accounts to scrape the list of the members of a group where members are visible or in all of your groups and channels and put them in a list with Doublegram. You can scrape from multiple places and create a unique list of members
