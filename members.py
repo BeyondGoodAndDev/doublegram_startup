@@ -1,10 +1,9 @@
-import os, sys, csv, string, time, configparser, traceback, colors, menu, asyncio, settings, banner
+import os, csv, string, configparser, colors, menu, settings, banner
 from voip import AccountSelector, GroupChannelSelector, test_connection, getVoips, activeAnalysis, blockAnalysis
 from telethon.tl.types import ChannelParticipantsAdmins
 from telethon import functions, types
 from telethon.tl.functions.channels import GetFullChannelRequest
-from telethon.sync import TelegramClient
-from telethon.tl.types import InputPeerEmpty, InputPeerChannel, InputPeerUser
+from telethon.tl.types import  InputPeerChannel
 
 translations = {}
 

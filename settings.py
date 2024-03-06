@@ -1,4 +1,4 @@
-import os, configparser, colors, banner, menu, re, sys
+import os, configparser, colors, banner, menu, sys
 import configparser
 
 translations = {}

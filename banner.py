@@ -1,4 +1,4 @@
-import colors, time, requests, os, configparser
+import colors, time, os, configparser
 from random import randint
 global translations
 
@@ -76,8 +76,7 @@ def banner(is_update=False,last_version=False,notice=False,start=False):
 		time.sleep(0.5)
 		print()
 		print(" "+translations['piu_informazioni_su'])
-		print(" "+translations['per_supporto_scrivere'])
-		time.sleep(2)
+		time.sleep(1)
 
 		if is_update == True:
 			print()
@@ -86,18 +85,18 @@ def banner(is_update=False,last_version=False,notice=False,start=False):
 
 		if notice != False:
 			print()
-			print(" "+translations['note_sviluppatore_cap'])
+			print(colors.bl+" "+translations['note_sviluppatore_cap'])
 			print(" "+notice)
 
 		if is_update == True or notice != False:
 			print()
-			choise = input(" "+translations['invio_continuare'])
+			choise = input(colors.cy+" "+translations['invio_continuare'])
 		
 		os.system('cls' if os.name=='nt' else 'clear')
 
 	print(colors.gr+"------------------------")
 	print(colors.gr+"|"+colors.wy+colors.wm+" -------------------- "+colors.wreset+colors.gr+"|")
-	print(colors.gr+"|"+colors.wm+colors.wy+" | DOUBLEGRAM V1.4  | "+colors.wreset+colors.gr+"|")
+	print(colors.gr+"|"+colors.wm+colors.wy+" | DOUBLEGRAM V1.5  | "+colors.wreset+colors.gr+"|")
 	print(colors.gr+"|"+colors.wm+colors.wy+" | STARTUP EDITION  | "+colors.wreset+colors.gr+"|")
 	print(colors.gr+"|"+colors.wy+colors.wm+" -------------------- "+colors.wreset+colors.gr+"|")
 	print(colors.gr+"------------------------")

@@ -1,15 +1,18 @@
-import os, sys, time, re, configparser, traceback, datetime, signal, random, asyncio, settings, banner, shutil, colors, menu
+import os, sys, time, configparser, signal, settings, banner, shutil, colors, menu, shutil, json
 from telethon.sync import TelegramClient
-from telethon.errors.rpcerrorlist import ApiIdInvalidError, PeerFloodError, FloodWaitError, UserPrivacyRestrictedError
-from telethon.tl.types import InputPeerEmpty, InputPeerChannel, InputPeerUser
-from telethon import functions, types
-from telethon.tl.functions.messages import GetDialogsRequest, ImportChatInviteRequest, ExportChatInviteRequest
-from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
+from telethon.errors.rpcerrorlist import ApiIdInvalidError, FloodWaitError
+from telethon.tl.types import InputPeerEmpty
+from telethon import functions
+from telethon.tl.functions.messages import GetDialogsRequest
 from telethon import errors
 from telethon.tl.functions.users import GetFullUserRequest
-from telethon.tl.types import PeerUser
 
 translations = {}
+
+cartella_import = "import"
+
+if not os.path.exists(cartella_import):
+	os.makedirs(cartella_import)
 
 try:
 	with open('data/lang.data', encoding="UTF-8") as f:
@@ -194,6 +197,138 @@ def test_connection(phone,apiID,hashID,silent_mode):
 		client = False
 
 	return client
+
+def leggi_file_json(nome_file):
+    with open(nome_file, 'r') as f:
+        return json.load(f)
+
+def sposta_file_session(numero_telefono):
+    nome_file_session = f"{numero_telefono}.session"
+    percorso_file_session = os.path.join(cartella_import, nome_file_session)
+    if os.path.exists(percorso_file_session):
+        shutil.move(percorso_file_session, f"sessions/{nome_file_session}")
+        print(colors.gr+f" [+] File {nome_file_session} "+translations['spostato_correttamente']+colors.wreset)
+    else:
+        print(colors.re+f" [!] File {nome_file_session} "+translations['non_trovato']+colors.wreset)
+
+def ImportAccounts():
+	print()
+	print(colors.wm+colors.wy+" "+"[+] "+translations['importa_account']+" "+colors.wreset)
+	print()
+
+	is_json = False
+
+	for nome_file_json in os.listdir(cartella_import):
+		if nome_file_json.endswith(".json"):
+
+			is_json = True
+
+			voips = getVoips()
+
+			print(colors.wg+" "+translations['trovato_json']+colors.wreset)
+			percorso_file_json = os.path.join(cartella_import, nome_file_json)
+			dati = leggi_file_json(percorso_file_json)
+			print()
+
+			print(" "+translations['inizio_importazione'])
+			print()
+			for elemento in dati:
+				if 'phone_number' in elemento:
+					print(" "+colors.wm+colors.wy+elemento['phone_number']+colors.wreset)
+					numero_telefono = elemento['phone_number']
+					sposta_file_session(numero_telefono)
+
+					nuovo_account = True
+					for voip in voips:
+						if voip['phone'] == numero_telefono:
+							print(colors.cy+" "+translations['account_gia_presente'])
+							nuovo_account = False
+							break
+					
+					if nuovo_account:
+						voips.append({
+							'name': 'IMPORTED',
+							'phone': elemento['phone_number'],
+							'apiID': elemento['api_id'],
+							'hashID': elemento['hash'],
+							'id': 'IMPORTED',
+							'access_hash': 'IMPORTED',
+							'username': 'IMPORTED',
+							'status': 'Disabled'
+						})
+						print(colors.wg+" "+translations['account_importato_successo']+colors.wreset)
+					else:
+						print(colors.re+" "+translations['account_ignorato']+colors.wreset)
+				
+				print()
+			
+			if(len(dati) > 0):
+				print(colors.cy+" "+translations['numero_account_importati']+" "+colors.wreset+colors.wg+str(len(dati))+colors.wreset)
+			else:
+				print(colors.re+" "+translations['nessun_importato']+colors.wreset)
+
+			print()
+			print(colors.cy+" "+translations['salvo_lista_aggiornata']+colors.wreset)
+			with open('data/config.data', 'w', encoding="UTF-8") as f:
+				for i, account in enumerate(voips):
+					f.write(f"[credenziali{i}]\n")
+					f.write(f"name = {account['name']}\n")
+					f.write(f"phone = {account['phone']}\n")
+					f.write(f"apiID = {account['apiID']}\n")
+					f.write(f"hashID = {account['hashID']}\n")
+					f.write(f"id = {account['id']}\n")
+					f.write(f"access_hash = {account['access_hash']}\n")
+					f.write(f"username = {account['username']}\n")
+					f.write(f"status = {account['status']}\n")
+					f.write("\n")
+
+			f.close()
+
+			print(colors.cy+" "+translations['importazione_completata']+colors.wreset)
+			print()
+			
+			input(colors.cy+" "+translations['invio_continuare']+" "+colors.gr)
+
+			if log == translations['disabilitato_first_cap']:
+				os.system('cls' if os.name=='nt' else 'clear')
+				banner.banner()
+
+			print()
+			print(colors.cy+" "+translations['aprire_analisi_importazione']+colors.wreset)
+			print()
+			print(colors.cy+" "+colors.cy+translations['premi_q_indietro'])
+			print()
+			print(colors.cy+"  y |"+colors.wreset+" "+translations['procedi_first_cap'])
+			print()
+			
+			print(colors.cy+" "+translations['digita_scelta_arrow_line'])
+			choise = False
+			choise = input(colors.cy+" "+translations['digita_tua_scelta_arrow']+" "+colors.gr)
+			
+			if choise == 'Y' or choise == 'y':
+				if log == translations['disabilitato_first_cap']:
+					os.system('cls' if os.name=='nt' else 'clear')
+					banner.banner()
+				AnalyzeAccounts()
+			elif choise == 'q' or choise == 'Q':
+				if log == translations['disabilitato_first_cap']:
+					os.system('cls' if os.name=='nt' else 'clear')
+					banner.banner()
+				menu.PrincipalMenu()
+			else:
+				if log == translations['disabilitato_first_cap']:
+					os.system('cls' if os.name=='nt' else 'clear')
+					banner.banner()
+				ImportAccounts()
+
+			break
+	
+	if not is_json:
+		print(colors.re+" "+translations['no_json']+colors.wreset)
+
+	
+	input(colors.cy+" "+translations['invio_continuare']+" "+colors.gr)
+	menu.PrincipalMenu()
 
 
 def ManageAccountList(write_method):

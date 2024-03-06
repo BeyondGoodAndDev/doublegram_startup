@@ -1,5 +1,5 @@
-import configparser, csv, os, sys, colors, settings, banner, requests
-from voip import ManageAccountList, AnalyzeAccounts, AccountSelector, GroupChannelSelector, EditAccount, DeleteAccount
+import configparser, csv, os, sys, colors, settings, banner
+from voip import ManageAccountList, AnalyzeAccounts, EditAccount, DeleteAccount, ImportAccounts
 from members import AddMembers, RewriteMembers
 from adding import AddUsers
 
@@ -103,18 +103,19 @@ def PrincipalMenu(show_menu=True):
 			print(colors.wm+colors.wy+" - "+translations['account_plurale_cap']+" "+colors.wreset)
 
 			print(colors.cy+"  1 | "+colors.wy+translations['aggiungi_account'])
-			print(colors.cy+"  2 | "+colors.wy+translations['gestione_account'])
-			print(colors.cy+"  3 | "+colors.wy+translations['analisi_account'])
+			print(colors.cy+"  2 | "+colors.wy+translations['importa_account_menu'])
+			print(colors.cy+"  3 | "+colors.wy+translations['gestione_account'])
+			print(colors.cy+"  4 | "+colors.wy+translations['analisi_account'])
 			print(colors.wm+colors.wy+" - "+translations['membri_cap']+" "+colors.wreset)
-			print(colors.cy+"  4 | "+colors.wy+translations['preleva_da'])
+			print(colors.cy+"  5 | "+colors.wy+translations['preleva_da'])
 			print(colors.wm+colors.wy+" - "+translations['adding_cap']+" "+colors.wreset)
-			print(colors.cy+"  5 | "+colors.wy+translations['centro_adding'])
+			print(colors.cy+"  6 | "+colors.wy+translations['centro_adding'])
 			print(colors.wm+colors.wy+" - "+translations['altro_cap']+" "+colors.wreset)
-			print(colors.cy+"  6 | "+colors.wy+translations['impostazioni'])
-			print(colors.cy+"  7 | "+colors.wy+translations['impostazioni_adding'])
+			print(colors.cy+"  7 | "+colors.wy+translations['impostazioni'])
+			print(colors.cy+"  8 | "+colors.wy+translations['impostazioni_adding'])
 			
 			print()
-			print(colors.cy+"  8 | "+translations['esci'])
+			print(colors.cy+"  9 | "+translations['esci'])
 			print(colors.wreset)
 			
 			try:
@@ -133,44 +134,50 @@ def PrincipalMenu(show_menu=True):
 			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		ManageAccountList(1)
+
+	if choise == 2:
+		if log == translations['disabilitato_first_cap']:
+			os.system('cls' if os.name=='nt' else 'clear')
+			banner.banner()
+		ImportAccountsMenu()
 		
-	elif choise == 4:
+	elif choise == 5:
 		if log == translations['disabilitato_first_cap']:
 			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		MembersMenu()
 
-	elif choise == 2:
+	elif choise == 3:
 		if log == translations['disabilitato_first_cap']:
 			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		ManageAccounts()
 
-	elif(choise == 3):
+	elif(choise == 4):
 		if log == translations['disabilitato_first_cap']:
 			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		AnalyzeAccounts()
 
-	elif(choise == 5):
+	elif(choise == 6):
 		if log == translations['disabilitato_first_cap']:
 			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		AddingMenu()
 
-	elif(choise == 6):
+	elif(choise == 7):
 		if log == translations['disabilitato_first_cap']:
 			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		SettingsMenu()
 
-	elif(choise == 7):
+	elif(choise == 8):
 		if log == translations['disabilitato_first_cap']:
 			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		AddingSettingsMenu()
 
-	elif(choise == 8):
+	elif(choise == 9):
 		print(colors.wreset)
 		sys.exit()
 
@@ -412,6 +419,87 @@ def AddingMenu():
 			os.system('cls' if os.name=='nt' else 'clear')
 			banner.banner()
 		AddingMenu()
+
+
+def ImportAccountsMenu():
+	print()
+	print(colors.wm+colors.wy+" "+translations['importa_account']+" "+colors.wreset)
+	print()
+	print(" "+colors.wy+translations['importa_account_1'])
+	print(" "+colors.wy+translations['importa_account_2'])
+	print(" "+colors.wy+translations['importa_account_3'])
+	print(" "+colors.wy+translations['importa_account_4'])
+	print(" "+colors.wy+translations['importa_account_5'])
+	print()
+	print(colors.cy+" "+colors.cy+translations['premi_q_indietro'])
+	print()
+	print(colors.cy+"  y |"+colors.wreset+" "+translations['procedi_first_cap'])
+	print(colors.cy+"  h |"+colors.wreset+" "+translations['maggiori_info_import'])
+	print()
+	
+	print(colors.cy+" "+translations['digita_scelta_arrow_line'])
+	choise = False
+	choise = input(colors.cy+" "+translations['digita_tua_scelta_arrow']+" "+colors.gr)
+	
+	if choise == 'Y' or choise == 'y':
+		if log == translations['disabilitato_first_cap']:
+			os.system('cls' if os.name=='nt' else 'clear')
+			banner.banner()
+		ImportAccounts()
+	elif choise == 'q' or choise == 'Q':
+		if log == translations['disabilitato_first_cap']:
+			os.system('cls' if os.name=='nt' else 'clear')
+			banner.banner()
+		PrincipalMenu()
+	elif choise == 'h' or choise == 'H':
+		if log == translations['disabilitato_first_cap']:
+			os.system('cls' if os.name=='nt' else 'clear')
+			banner.banner()
+		MoreInfoImport()
+	else:
+		if log == translations['disabilitato_first_cap']:
+			os.system('cls' if os.name=='nt' else 'clear')
+			banner.banner()
+		ImportAccountsMenu()
+
+def MoreInfoImport():
+	print()
+	print(colors.wm+colors.wy+" "+translations['importa_account']+" "+colors.wreset)
+	print()
+
+	print(translations['text_import_howto'])
+	print(colors.cy+"""
+ [
+	{
+		"phone_number": "+1234567890",
+		"api_id": "123456",
+		"hash": "0123456789abcdef0123456789abcdef"
+	},
+	{
+		"phone_number": "+1987654321",
+		"api_id": "654321",
+		"hash": "abcdef0123456789abcdef0123456789"
+	}
+ ]""")
+	print()
+	print(colors.cy+" "+translations['premi_q_indietro'])
+	print()
+	print(colors.cy+"  y |"+colors.wreset+" "+translations['procedi_first_cap'])
+	print()
+	print(colors.cy+" "+translations['digita_scelta_arrow_line'])
+	choise = False
+	choise = input(colors.cy+" "+translations['digita_tua_scelta_arrow']+" "+colors.gr)
+
+	if choise == 'Y' or choise == 'y':
+		if log == translations['disabilitato_first_cap']:
+			os.system('cls' if os.name=='nt' else 'clear')
+			banner.banner()
+		ImportAccounts()
+	elif choise == 'q' or choise == 'Q':
+		if log == translations['disabilitato_first_cap']:
+			os.system('cls' if os.name=='nt' else 'clear')
+			banner.banner()
+		PrincipalMenu()
 
 
 def ManageAccounts():

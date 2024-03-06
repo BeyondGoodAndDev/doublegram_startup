@@ -1,14 +1,9 @@
-import os, sys, csv, re, time, configparser, traceback, random, banner, asyncio,menu, colors, settings
+import csv, re, time, configparser, random, asyncio, colors, settings
 from telethon.sync import TelegramClient
-from telethon.tl.types import UserStatusOnline, UserStatusOffline, UserStatusRecently, UserStatusLastWeek, UserStatusLastMonth
-from telethon.tl.functions.messages import GetDialogsRequest, ImportChatInviteRequest
-from telethon.tl.types import ChannelParticipantsAdmins
-from telethon.tl.types import InputPeerEmpty, InputPeerChannel, InputPeerUser
-from telethon.tl.functions.users import GetFullUserRequest
-from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
-from telethon.errors.rpcerrorlist import PeerFloodError, UserPrivacyRestrictedError, FloodWaitError, UsersTooMuchError
-from voip import AccountSelector, GroupChannelSelector, test_connection, getVoips, activeAnalysis, blockAnalysis
-from datetime import date
+from telethon.tl.types import InputPeerChannel, InputPeerUser
+from telethon.tl.functions.channels import InviteToChannelRequest
+from telethon.errors.rpcerrorlist import PeerFloodError, UserPrivacyRestrictedError, FloodWaitError
+from voip import activeAnalysis
 
 log = settings.getSetting('log','general_settings')
 

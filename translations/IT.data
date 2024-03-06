@@ -80,7 +80,7 @@ abilitato_first_cap = Abilitato
 impostazioni_line = ---------------------------
 impostazioni_txt = | > IMPOSTAZIONI GENERALI |
 mantieni_log = Mantieni log durante l'esecuzione:
-utente_analisi = Utente per analisi limitazioni:
+utente_analisi = Utente per analisi account:
 pausa_invito_general = Pausa invito automatico dei tuoi account:
 pausa_ingresso_general = Pausa ingresso automatico dei tuoi account:
 imp_adding_line = -------------------------
@@ -641,3 +641,31 @@ recupero_presenti_final = Per farlo, selezionare la destinazione con un account 
 riavvio_necessario = Per apportare le modifiche è necessario riavviare Doublegram
 riavvio_necessario_1 = Uscita in corso...
 errore_test_user = Aggiorna il tuo utente per l'analisi degli account dalle impostazioni generali.
+
+importa_account_menu = Importa account
+spostato_correttamente = spostato correttamente
+non_trovato = non trovato
+importa_account = [+] IMPORTA ACCOUNT
+trovato_json = [+] Trovato file .json nella cartella 'import'.
+inizio_importazione = [+] Inizio importazione...
+account_gia_presente = [!] L'account è già presente nella lista.
+account_importato_successo = [+] Account aggiunto con successo.
+account_ignorato = [-] Account ignorato
+numero_account_importati = Numero di account importati:
+nessun_importato = Nessun account importato
+salvo_lista_aggiornata = [+] Salvo la lista degli account aggiornata...
+importazione_completata = [-] Importazione completata.
+aprire_analisi_importazione = Vuoi eseguire l'analisi degli account per aggiornare i dati degli account?
+no_json = [!] Nessun file .json trovato nella cartella 'import'.
+maggiori_info_import = Maggiori informazioni sull'import
+importa_account_1 = Esegui l'importazione degli account da un file json
+importa_account_2 = e dai file .session. Ti basta copiarli nella cartella
+importa_account_3 = 'import' e avviare l'importazione. Quando importi
+importa_account_4 = gli account verranno aggiunti alla lista attuale,
+importa_account_5 = senza sovrascrivere quelli già presenti.
+text_import_howto =  Gli account importati saranno disabilitati in Doublegram di default,
+ puoi abilitarli dalla sezione "Gestione Account" del menu principale. 
+ I file .session devono avere come nome il numero di telefono dell'account.
+ Dopo l'importazione esegui l'analisi degli account per aggiornare gli altri dati,
+ come nome, username, ecc.
+ Il file json può avere qualsiasi nome e deve avere la seguente struttura:

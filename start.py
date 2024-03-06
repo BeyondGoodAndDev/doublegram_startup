@@ -1,6 +1,6 @@
 #!/bin/env python3
 # Author : Doublegram.me
-import os, sys, csv, time, traceback, random, requests, configparser, uuid, socket
+import os, sys, requests, configparser
 
 global is_update
 global last_version
@@ -65,9 +65,9 @@ if lang == 'IT' or lang == 'EN':
 
 breaker = False 
 
-current_version = '1.4.1'
+current_version = '1.5.0'
 current_edition = 'STARTUP_EDITION'
-serial_id = 'EO9K2W3KKKRF7695671DIEXX'
+serial_id = 'EO9K2W3KKKRF7695671DIEVX'
 
 url = "https://startup.doublegram.com/version_verification.php?edition="+current_edition
 
@@ -92,8 +92,6 @@ notice = resp.text
 
 if notice == 'no':
 	notice = False
-
-
 
 cpass = configparser.RawConfigParser()
 

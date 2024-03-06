@@ -80,7 +80,7 @@ abilitato_first_cap = Enabled
 impostazioni_line = ----------------------
 impostazioni_txt = | > GENERAL SETTINGS |
 mantieni_log = Keep log during execution:
-utente_analisi = Limitation analysis user:
+utente_analisi = Account analysis user:
 pausa_invito_general = Automatic invitation of your accounts pause:
 pausa_ingresso_general = Automatic join of your accounts pause:
 imp_adding_line = ---------------------
@@ -641,3 +641,32 @@ recupero_presenti_final = To do so, select the destination with an administrator
 riavvio_necessario = You must reboot Doublegram in order to apply changes
 riavvio_necessario_1 = Terminating...
 errore_test_user = Update your account analysis default user in the general settings.
+
+importa_account_menu = Import accounts
+spostato_correttamente = moved successfully
+non_trovato = not found
+importa_account = [+] IMPORT ACCOUNTS
+trovato_json = [+] .json file found in the 'import' folder.
+inizio_importazione = [+] Import started...
+account_gia_presente = [!] The account is already in the list.
+account_importato_successo = [+] Account added successfully.
+account_ignorato = [-] Account ignored
+numero_account_importati = Number of imported accounts:
+nessun_importato = No accounts imported
+salvo_lista_aggiornata = [+] Saving the updated account list
+importazione_completata = [-] Import complete
+aprire_analisi_importazione = Would you like to perform account analysis to update account data?
+no_json = [!] Not any .json file found in the 'import' folder.
+[!] Nessun file .json trovato nella cartella 'import'.
+maggiori_info_import = More info about import
+importa_account_1 = Execute the import of your accounts from a json file
+importa_account_2 = and from .sessions files. Copy all files in the
+importa_account_3 = 'import' folder and start the process. When you import
+importa_account_4 = the accounts they will be added to the current list
+importa_account_5 = without overwriting the list.
+text_import_howto = Imported accounts will be disabled in Doublegram by default,
+ you can enable them from the "Account Management" section of the main menu.
+ .session files must be named after your account's phone number.
+ After import, perform account analysis to update other data,
+ such as name, username, etc.
+ The json file can have any name and must have the following structure:
