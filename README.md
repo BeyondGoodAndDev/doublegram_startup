@@ -7,11 +7,11 @@ Doublegram Startup Edition - Targeting, scraping and adding tool for your groups
 ![Logo](https://doublegram.com/img/dbl-github.png)
 
 
-##### OFFICIAL UPDATES CHANNEL
-[Doublegram Updates](https://t.me/doublegram_updates)
+##### OFFICIAL NEWS CHANNEL
+[Doublegram Updates](https://t.me/doublegram_news)
 
 ##### OFFICIAL TELEGRAM GROUP FOR STARTUP EDITION (English - Italiano)
-[Doublegram Startup Group](https://t.me/+EHhii69w3YkyMjFk)
+[Doublegram Startup Group](https://t.me/+DdO9_OA29442ODI0)
 
 
 ## Installation and requirements
